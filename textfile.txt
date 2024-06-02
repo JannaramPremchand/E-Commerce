@@ -1,0 +1,71 @@
+
+=>WE EXPLAIN ALL THE FOLDER AND WHAT WE USE IN THIS FOLDER AND HOW WE BUILT APPLICTION SO,
+# IN THIS APPLICTION WE USE THE FUNCTIONLITY OF DJANGO,SQL,PYTHON
+1.FIRST WE MAKE ONE PROJECT,THE NAME OF PROJECT IS E-COMMERCE 
+2.THERE ARE THREE APPLICTION ACCOUNT,PRODUCTS,HOME
+3.THERE WE USE ONE EXTRANAL FILE TO WRITE A FUNCTIONLITY OF EMAIL & SAME THIS FILE WE USE MODELS.PY FOR GERNATING UUID FIELDS
+4.THERE ONE FOLDER CALLED PUBLIC IN THIS FOLDER WE STORE ALL THE STATIC FILE LIKE CSS,JAVASCRIPT,BOOTSTRAP,IMAGES,FONT ETC.
+5.THERE ARE ONE MORE FOLDER CALLED TEMPLATES IN THIS FOLDER WE STORE ALL THE HTML FILE THEY HAVE FORE FOLDER BASE,HOME,ACCOUNT,PRODUCTS
+6.IN THIS APPLICTION WE USE SQLITE.3 DATABASE THIS IS ALSO DUFALT DATABASE IN DJANGO
+
+
+PROJECT_NAME = E-COMMERCE ->
+                            FIRST = WE REGISTOR ALL THE APPLICTION IN SETTINGS.PY
+                            INSTALLED_APPS = [
+                            'django.contrib.admin',
+                            'django.contrib.auth',
+                            'django.contrib.contenttypes',
+                            'django.contrib.sessions',
+                            'django.contrib.messages',
+                            'django.contrib.staticfiles',
+                            'Products',
+                            'Home',
+                            'Account'
+                            ]
+                            SECOND = WE REGISTOR OUR TEMPLATES CONFIRIGATION IN TEMPLATES_DIR
+                            TEMPLATES = [
+                                {
+                                    'BACKEND': 'django.template.backends.django.DjangoTemplates',
+                                    'DIRS': [TEMPLATE_DIR],
+                                    'APP_DIRS': True,
+                                    'OPTIONS': {
+                                        'context_processors': [
+                                            'django.template.context_processors.debug',
+                                            'django.template.context_processors.request',
+                                            'django.contrib.auth.context_processors.auth',
+                                            'django.contrib.messages.context_processors.messages',
+                                        ],
+                                    },
+                                },
+                            ]
+                            THIRD = WE REGISTOR OUR STATIC CONFIRIGATION IN STATIC SETTINGS AND ONE MORE THING WE DO IN 
+                                    THIS WE USE MEDIA_URL TO HENDAL OUR MEDIA QUIRES
+
+                            STATIC_ROOT = 'staticfiles'
+                            STATIC_URL = '/static/'
+
+                            STATIC_URL = '/static/'
+                            STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
+
+                            STATICFILES_DIR = {
+                                os.path.join(BASE_DIR , "public/static")
+                            }
+
+                            MEDIA_ROOT =  os.path.join(BASE_DIR, 'public/static') 
+                            MEDIA_URL = '/media/'
+
+                            FOURTH = EMAIL CONFIRIGATION TO HENDAL ALL THE EMAIL QUIRES
+                            
+                            EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+                            EMAIL_HOST = 'smtp.gmail.com'
+                            EMAIL_USE_TLS = True
+                            EMAIL_PORT = 587
+                            EMAIL_HOST_USER = ''
+                            EMAIL_HOST_PASSWORD = ''
+
+
+APPLICTIONS = ACCOUNT ->
+                        FIRST WE CREATE OUR MODELS IN MODELS.PY AND WE INHARIT ALL THE MODEL TO OUR BASE MODLE WE CREARTE SAPRAET IN OUR PROJECT E-COMMERCE
+                                1.Profile,Cart,CartItems
+                        SECOND = REGISTOR ALL THE MODELS IN ADMIN AFTER THAT BE PUSH COMMAND MIGRATE OR MAKEMIGRATIONS & CREATESUPER USER
+                        THIRD CREATE VIEWS WE USE IN THIS PROJECT User INBULT FUNCTIONLITY 
